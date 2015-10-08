@@ -33,7 +33,6 @@ public class AudioCapture {
             e.printStackTrace();
             return false;
         }
-
         return true;
     }
 

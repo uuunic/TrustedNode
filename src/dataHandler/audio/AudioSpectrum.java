@@ -141,6 +141,7 @@ public class AudioSpectrum extends JComponent{
         g.drawImage(spectrumImage, 0, 0, null);
     }
 
+    //需要给出2^n 长度的数据
     public synchronized void putDataAndDraw(byte[] data) {
         byte[] b;
         float realIO[] = new float[FFT.FFT_N];
