@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TrustedNode:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TrustedNode_jar</output-path>
+    <root id="archive" name="com.buaa.TrustedNode.jar">
+      <element id="module-output" name="com.buaa.TrustedNode" />
+      <element id="library" level="project" name="bcprov-jdk15on-152" />
+    </root>
+  </artifact>
+</component>

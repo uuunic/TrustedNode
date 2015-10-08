@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: lib/bcprov-jdk15on-152.jar
+Main-Class: ui.TrustedNode
+
