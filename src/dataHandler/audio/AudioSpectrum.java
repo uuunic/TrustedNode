@@ -143,10 +143,18 @@ public class AudioSpectrum extends JComponent{
 
     //需要给出2^n 长度的数据
     public synchronized void putDataAndDraw(byte[] data) {
-        byte[] b;
+        byte[] b = new byte[data.length / 2];
         float realIO[] = new float[FFT.FFT_N];
         int i, j;
-        b = data;
+
+        int count = 0;
+        for(int n=0; n<b.length; n+=2){
+            b[n] = data[count];
+            count ++;
+            b[n + 1] = data[count];
+            count += 3;
+        }
+
          //wi.getWave264(b, FFT.FFT_N << 1);//debug
         for (i = j = 0; i != FFT.FFT_N; i++, j += 2)
             realIO[i] = (b[j + 1] << 8) | (b[j] & 0xff); //signed short
