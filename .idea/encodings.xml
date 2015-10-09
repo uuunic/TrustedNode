@@ -5,9 +5,12 @@
     <file url="file://$PROJECT_DIR$/src/Packet/ReceivePacketThread.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/encryption/MD5Util.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/encryption/RSAUtil.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/ui/MessageListViewManager.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/ui/NodeStateListViewManager.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/ui/TrustedNode.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/ui/AudioInfoManager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ui/JOptionPaneDialog.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ui/MessageListViewManager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ui/NodeStateListViewManager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ui/ShowAccessLog.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ui/TrustedNode.java" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>
