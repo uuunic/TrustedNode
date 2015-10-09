@@ -28,7 +28,7 @@ import java.net.SocketAddress;
 public class ReceiveAudioThread extends Thread {
 	private static final String THREAD_NAME = "ReceiveAudio";
 	private static final String TAG = "ReceiveAudioThread";
-	private static final int MAX_DATALENGTH = 1421;//长度为sendAudioPacketThread.Max_dataLength+(1421-1024)
+	private static final int MAX_DATALENGTH = 8421;//长度为sendAudioPacketThread.Max_dataLength+(1421-1024)
 	
 	private NodePool nodePool;
 	private final Handler handler;

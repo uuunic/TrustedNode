@@ -1,6 +1,7 @@
 package util;
 
 import java.awt.*;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Properties;
 
@@ -9,15 +10,37 @@ import java.util.Properties;
  */
 public class Test {
     public static void main(String[] args) {
-        Properties p = ConfigHandler.getProperties();
-        String[] names = p.getProperty("name").trim().split(",");
-        String[] IPs = p.getProperty("IP").trim().split(",");
-        for(String IP : IPs){
-            System.out.println(IP);
+
+        byte[] b = new byte[1024];
+        int [] a = new int[256];
+        for(int i=0; i<a.length; i++) {
+            a[i] = 3123513 * i;
+            System.out.print(a[i] + " ");
         }
-        for(String name : names) {
-            System.out.println(name);
+        System.out.println();
+        for(int i=0; i<a.length; i++) {
+            b[i * 4] = (byte)(a[i] >>> 24);
+            b[i * 4 + 1] = (byte)((a[i] >>> 16) & 0x000000ff);
+            b[i * 4 + 2] = (byte)((a[i] >>> 8) & 0x000000ff);
+            b[i * 4 + 3] = (byte)((a[i]) & 0x000000ff);
         }
+        for(int i=0; i<b.length; i++) {
+            System.out.print(b[i] + " ");
+        }
+        System.out.println();
+        int[] integer = new int[256];
+        for (int i=0; i<integer.length; i++) {
+            integer[i] = (int) ((b[i * 4 + 3] & 0xFF)
+                    | ((b[i * 4 + 2] & 0xFF)<<8)
+                    | ((b[i * 4 + 1] & 0xFF)<<16)
+                    | ((b[i * 4] & 0xFF)<<24));
+        }
+        for(int i=0; i<integer.length; i++) {
+            System.out.print(integer[i] + " ");
+        }
+        System.out.println();
+
 
     }
+
 }

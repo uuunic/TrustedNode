@@ -28,7 +28,6 @@ public class AudioPlaybackThread extends Thread {
     }
 
     public void startPlayback(){
-        audioPlayback.start();
         isPlaybackStart = true;
     }
 
@@ -41,7 +40,8 @@ public class AudioPlaybackThread extends Thread {
         while(!this.shutdownRequested){
             try {
                 byte[] audioData = this.audioDataBuffer.getAudioData();
-                audioPlayback.write(audioData, audioData.length);
+
+                audioPlayback.write(audioData);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

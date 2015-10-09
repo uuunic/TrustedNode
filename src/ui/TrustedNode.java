@@ -98,6 +98,18 @@ public class TrustedNode extends javax.swing.JFrame {
     public static final int HANDLER_FAST_BH_3 = 66;
 
 
+    public static native int Record(int[] pBuf,int len);
+    public static native void Player(int[] pBuf,int len);
+    public static native void AudioInit();
+    public static native void AudioEnd();
+    static
+    {
+        System.load("/opt/libaudio.so");
+        TrustedNode.AudioInit();
+
+    }
+
+
     public final Handler infoHandler = new Handler() {
 
         @Override

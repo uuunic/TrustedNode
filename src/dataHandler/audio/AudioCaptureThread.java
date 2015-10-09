@@ -28,7 +28,6 @@ public class AudioCaptureThread extends Thread {
     public void shutdownRequest(){
         this.shutdownRequested = true;
         audioCapture.stop();
-        audioCapture.close();
         audioCapture = null;
         interrupt();
     }
@@ -38,7 +37,7 @@ public class AudioCaptureThread extends Thread {
         shutdownRequested = false;
         try{
             while(!this.shutdownRequested){
-                int length = audioCapture.read(data, data.length);
+                data = audioCapture.read();
                 this.audioDataBuffer.putAudioData(data);
             }
         }catch (InterruptedException e){
