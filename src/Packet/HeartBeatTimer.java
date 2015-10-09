@@ -63,7 +63,7 @@ public class HeartBeatTimer {
 				Node node = (Node)entry.getValue();
 				long lastTime = node.getLastHeartBeatTime();
 				//检查是否超时，超时则设置为不在线
-				if((node.isOnline() && nowTime - lastTime > TIME_OUT) ) {
+				if(node.isOnline() && (nowTime - lastTime > TIME_OUT) ) {
 					node.setIsOnline(false);
 					handler.obtainMessage(TrustedNode.HANDLER_UPDATE_CLIENT_STATE, node).sendToTarget();
 				}

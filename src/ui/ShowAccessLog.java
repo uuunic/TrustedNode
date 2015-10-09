@@ -15,57 +15,57 @@ import java.security.interfaces.RSAPublicKey;
 public class ShowAccessLog {
 
     public static void showReceiveRSA0Package(JTextArea jTextArea_log, RSAPackage0 p0){
-        jTextArea_log.append("ÊÕµ½½ÓÈëÇëÇó Package 0\n");
-        jTextArea_log.append("½ÓÈëÕßÎª£º" + p0.getName() + ", IP µØÖ·Îª + " + p0.getIP() + "\n");
-        jTextArea_log.append("½ÓÈëÇëÇóÎª£º " + p0.getRequest() + "\n");
+        jTextArea_log.append("æ”¶åˆ°æ¥å…¥è¯·æ±‚ Package 0\n");
+        jTextArea_log.append("æ¥å…¥è€…ä¸ºï¼š" + p0.getName() + ", IP åœ°å€ä¸º + " + p0.getIP() + "\n");
+        jTextArea_log.append("æ¥å…¥è¯·æ±‚ä¸ºï¼š " + p0.getRequest() + "\n");
     }
 
     public static void showReceiveRSA1Package(JTextArea jTextArea_log, RSAPackage1 p1) {
-        jTextArea_log.append("ÊÕµ½½ÓÈëÇëÇó Package 1 \n");
-        jTextArea_log.append("½ÓÈëÕßÎª" + p1.getName() + ", IPµØÖ·Îª" + p1.getIP() +"\n");
+        jTextArea_log.append("æ”¶åˆ°æ¥å…¥è¯·æ±‚ Package 1 \n");
+        jTextArea_log.append("æ¥å…¥è€…ä¸º" + p1.getName() + ", IPåœ°å€ä¸º" + p1.getIP() +"\n");
         RSAPublicKey pk = p1.getRSAPublicKey();
-        jTextArea_log.append(p1.getName() + "µÄ¹«Ô¿Îª£º" + pk.toString() + "\n");
+        jTextArea_log.append(p1.getName() + "çš„å…¬é’¥ä¸ºï¼š" + pk.toString() + "\n");
 
     }
 
     public static void showReceiveRSA2Package(JTextArea jTextArea_log, RSAPackage2 p2) {
-        jTextArea_log.append("ÊÕµ½½ÓÈëÇëÇó Package 2\n");
-        jTextArea_log.append("½ÓÈëÕßÎª " + p2.getName() + "\n");
+        jTextArea_log.append("æ”¶åˆ°æ¥å…¥è¯·æ±‚ Package 2\n");
+        jTextArea_log.append("æ¥å…¥è€…ä¸º " + p2.getName() + "\n");
         RSAPublicKey pk = p2.getRSAPublicKey();
-        jTextArea_log.append(p2.getName() + "µÄ¹«Ô¿Îª£º" + pk.toString() + "\n");
-        jTextArea_log.append("Ğ­ÉÌ²úÉúµÄ»á»°ÃÜÔ¿Îª£º" + Tools.parseByte2HexStr(p2.getAESKey()) + "\n");
+        jTextArea_log.append(p2.getName() + "çš„å…¬é’¥ä¸ºï¼š" + pk.toString() + "\n");
+        jTextArea_log.append("åå•†äº§ç”Ÿçš„ä¼šè¯å¯†é’¥ä¸ºï¼š" + Tools.parseByte2HexStr(p2.getAESKey()) + "\n");
 
     }
 
     public static void showReceiveRSA3Package(JTextArea jTextArea_log, RSAPackage3 p3) {
-        jTextArea_log.append("ÊÕµ½½ÓÈëÇëÇó Pacakge 3 \n");
-        jTextArea_log.append("½ÓÈëÕßÎª " + p3.getName() + "\n");
-        jTextArea_log.append("Ğ­ÉÌ²úÉúµÄ»á»°ÃÜÔ¿Îª£º" + Tools.parseByte2HexStr(p3.getAESKey()) + "\n");
+        jTextArea_log.append("æ”¶åˆ°æ¥å…¥è¯·æ±‚ Pacakge 3 \n");
+        jTextArea_log.append("æ¥å…¥è€…ä¸º " + p3.getName() + "\n");
+        jTextArea_log.append("åå•†äº§ç”Ÿçš„ä¼šè¯å¯†é’¥ä¸ºï¼š" + Tools.parseByte2HexStr(p3.getAESKey()) + "\n");
     }
 
     public static void showSendRSA0Package(JTextArea jTextArea_log, RSAPackage0 p0){
-        jTextArea_log.append("·¢ËÍ½ÓÈëÇëÇó Package 0\n");
-        jTextArea_log.append("½ÓÈëÇëÇóÎª£º " + p0.getRequest() + "\n");
+        jTextArea_log.append("å‘é€æ¥å…¥è¯·æ±‚ Package 0\n");
+        jTextArea_log.append("æ¥å…¥è¯·æ±‚ä¸ºï¼š " + p0.getRequest() + "\n");
     }
 
     public static void showSendRSA1Package(JTextArea jTextArea_log, RSAPackage1 p1) {
-        jTextArea_log.append("ÊÕµ½½ÓÈëÇëÇó Package 1 \n");
+        jTextArea_log.append("æ”¶åˆ°æ¥å…¥è¯·æ±‚ Package 1 \n");
         RSAPublicKey pk = p1.getRSAPublicKey();
-        jTextArea_log.append("Ğ­ÉÌµÄ¹«Ô¿Îª£º" + pk.toString() + "\n");
+        jTextArea_log.append("åå•†çš„å…¬é’¥ä¸ºï¼š" + pk.toString() + "\n");
 
     }
 
     public static void showSendRSA2Package(JTextArea jTextArea_log, RSAPackage2 p2) {
-        jTextArea_log.append("ÊÕµ½½ÓÈëÇëÇó Package 2\n");
+        jTextArea_log.append("æ”¶åˆ°æ¥å…¥è¯·æ±‚ Package 2\n");
         RSAPublicKey pk = p2.getRSAPublicKey();
-        jTextArea_log.append("Ğ­ÉÌµÄ¹«Ô¿Îª£º" + pk.toString() + "\n");
-        jTextArea_log.append("Ğ­ÉÌ²úÉúµÄ»á»°ÃÜÔ¿Îª£º" + Tools.parseByte2HexStr(p2.getAESKey()) + "\n");
+        jTextArea_log.append("åå•†çš„å…¬é’¥ä¸ºï¼š" + pk.toString() + "\n");
+        jTextArea_log.append("åå•†äº§ç”Ÿçš„ä¼šè¯å¯†é’¥ä¸ºï¼š" + Tools.parseByte2HexStr(p2.getAESKey()) + "\n");
 
     }
 
     public static void showSendRSA3Package(JTextArea jTextArea_log, RSAPackage3 p3) {
-        jTextArea_log.append("ÊÕµ½½ÓÈëÇëÇó Pacakge 3 \n");
-        jTextArea_log.append("Ğ­ÉÌ²úÉúµÄ»á»°ÃÜÔ¿Îª£º" + Tools.parseByte2HexStr(p3.getAESKey()) + "\n");
+        jTextArea_log.append("æ”¶åˆ°æ¥å…¥è¯·æ±‚ Pacakge 3 \n");
+        jTextArea_log.append("åå•†äº§ç”Ÿçš„ä¼šè¯å¯†é’¥ä¸ºï¼š" + Tools.parseByte2HexStr(p3.getAESKey()) + "\n");
     }
 
 

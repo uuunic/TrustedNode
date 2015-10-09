@@ -32,7 +32,7 @@ public class Node {
         return this.lastHeartBeat;
     }
     public void setIsOnline(boolean isOnline) {
-        this.isOnline = true;
+        this.isOnline = isOnline;
         updateLastHeartBeatTime();
     }
     public void setPublicKey(RSAPublicKey pk) {

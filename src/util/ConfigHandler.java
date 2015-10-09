@@ -16,7 +16,7 @@ public class ConfigHandler {
             p = new Properties();
             InputStream instream = null;
             try {
-                instream = new BufferedInputStream(new FileInputStream("config.properties"));
+                instream = new BufferedInputStream(new FileInputStream("/opt/trustedNode/config.properties"));
              p.load(instream);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

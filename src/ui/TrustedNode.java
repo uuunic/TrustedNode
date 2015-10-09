@@ -26,11 +26,11 @@ public class TrustedNode extends javax.swing.JFrame {
     public static final boolean DEBUG = true;
     private static final String TAG = "TrustAccessServer";
 
-    //µ•ª˙—› æΩÁ√Êœ‡πÿÃ· æ
-    private static final String DEMO_CLIENT_NAME = "∑˛ŒÒ∆˜µ•ª˙—› æƒ£ Ω";
-    private static final String DEMO_CLIENT_IP = "≤ª∫œ∑®µƒIPµÿ÷∑";
+    //ÂçïÊú∫ÊºîÁ§∫ÁïåÈù¢Áõ∏ÂÖ≥ÊèêÁ§∫
+    private static final String DEMO_CLIENT_NAME = "ÊúçÂä°Âô®ÂçïÊú∫ÊºîÁ§∫Ê®°Âºè";
+    private static final String DEMO_CLIENT_IP = "‰∏çÂêàÊ≥ïÁöÑIPÂú∞ÂùÄ";
 
-    //  π”√Handlerµƒœ‡πÿ±‰¡ø
+    // ‰ΩøÁî®HandlerÁöÑÁõ∏ÂÖ≥ÂèòÈáè
     public static final int HANDLER_UPDATE_CLIENT_STATE = 20;
     public static final int HANDLER_ADD_CLIENT = 21;
     public static final int HANDLER_ERROR_WIFI = 22;
@@ -119,40 +119,40 @@ public class TrustedNode extends javax.swing.JFrame {
             switch (msg.what) {
                 case HANDLER_UPDATE_CLIENT_STATE:
                     Node nodeUpdate = (Node) msg.obj;
-                    // ∏¸–¬”√ªßµƒ‘⁄œﬂ–≈œ¢
+                    // Êõ¥Êñ∞Áî®Êà∑ÁöÑÂú®Á∫ø‰ø°ÊÅØ
                     nodestateListViewManager.updateClientState(nodeUpdate);
                     break;
                 case HANDLER_ADD_CLIENT:
                     Node nodeAdd = (Node) msg.obj;
-                    // ‘ˆº”–¬”√ªß
+                    // Â¢ûÂä†Êñ∞Áî®Êà∑
                     if (DEBUG) {
-                        System.out.println(TAG + "‘ˆº”–¬”√ªß:"
+                        System.out.println(TAG + "Â¢ûÂä†Êñ∞Áî®Êà∑:"
                                 + nodeAdd.getName());
                     }
                     nodestateListViewManager.addClientToList(nodeAdd);
                     break;
                 case HANDLER_ERROR_WIFI:
 //				JOptionPaneDialog.showErrorJOptionPane();
-                    jLabel_systemInfo.setText("Network÷–∂œ£¨«ÎºÏ≤ÈÕ¯¬Á «∑Ò¡¨Ω”");
+                    jLabel_systemInfo.setText("Network‰∏≠Êñ≠ÔºåËØ∑Ê£ÄÊü•ÁΩëÁªúÊòØÂê¶ËøûÊé•");
                     break;
                 case HANDLER_ERROR_NULL_CURRENT_CLIENT:
-                    jLabel_systemInfo.setText("«Î—°‘Ò“ª∏ˆ∫œ∑®µƒÕ®–≈”√ªß");
+                    jLabel_systemInfo.setText("ËØ∑ÈÄâÊã©‰∏Ä‰∏™ÂêàÊ≥ïÁöÑÈÄö‰ø°Áî®Êà∑");
                     break;
                 case HANDLER_ERROR_CURRENT_CLIENT_OFFLINE:
-                    jLabel_systemInfo.setText("µ±«∞Õ®–≈”√ªß¥¶”⁄¿Îœﬂ◊¥Ã¨ªÚ≤ªø…–≈◊¥Ã¨");
+                    jLabel_systemInfo.setText("ÂΩìÂâçÈÄö‰ø°Áî®Êà∑Â§Ñ‰∫éÁ¶ªÁ∫øÁä∂ÊÄÅÊàñ‰∏çÂèØ‰ø°Áä∂ÊÄÅ");
                     break;
                 case HANDLER_ERROR_NULL_NEIGHBOR_ONLINE:
-                    jLabel_systemInfo.setText("Œﬁ¬∑”…ø…”Îµ±«∞”√ªßÕ®–≈");
+                    jLabel_systemInfo.setText("Êó†Ë∑ØÁî±ÂèØ‰∏éÂΩìÂâçÁî®Êà∑ÈÄö‰ø°");
                     break;
                 case HANDLER_ROUTE_TEXT:
                     MessageHandler messageHandlerRoute = (MessageHandler) msg.obj;
                     messageListViewManager.addNewMessage(messageHandlerRoute.text,
                             messageHandlerRoute.sourceName,
-                            messageHandlerRoute.destName + " (÷–◊™)");
+                            messageHandlerRoute.destName + " (‰∏≠ËΩ¨)");
                     break;
                 case HANDLER_ROUTE_ERROR_TEXT:
 
-                    jLabel_systemInfo.setText("¬∑”…÷–∂œ£¨Œƒ◊÷«≈Ω”“—æ≠∂œ¬∑£°");
+                    jLabel_systemInfo.setText("Ë∑ØÁî±‰∏≠Êñ≠ÔºåÊñáÂ≠óÊ°•Êé•Â∑≤ÁªèÊñ≠Ë∑ØÔºÅ");
                     break;
                 case HANDLER_ADD_TEXT:
                     MessageHandler messageHandlerAdd = (MessageHandler) msg.obj;
@@ -170,11 +170,11 @@ public class TrustedNode extends javax.swing.JFrame {
 
                 case HANDLER_ROUTE_AUDIO:
                     AudioHandler ah = (AudioHandler) msg.obj;
-                    jLabel_systemInfo.setText("”Ô“Ù÷–◊™Ω¯––÷–£∫" + ah.sourceName + "->" + ah.destName);
+                    jLabel_systemInfo.setText("ËØ≠Èü≥‰∏≠ËΩ¨ËøõË°å‰∏≠Ôºö" + ah.sourceName + "->" + ah.destName);
                     break;
                 case HANDLER_ROUTE_ERROR_AUDIO:
                     isAudioCommu = false;
-                    jLabel_systemInfo.setText("¬∑”…÷–∂œ£¨”Ô“Ù«≈Ω”“—æ≠∂œ¬∑£°");
+                    jLabel_systemInfo.setText("Ë∑ØÁî±‰∏≠Êñ≠ÔºåËØ≠Èü≥Ê°•Êé•Â∑≤ÁªèÊñ≠Ë∑ØÔºÅ");
                     break;
                 case HANDLER_REQ_AUDIO_SEND:
                     AudioHandler audioHandlerSENDREQ = (AudioHandler) msg.obj;
@@ -224,7 +224,7 @@ public class TrustedNode extends javax.swing.JFrame {
                     break;
                 case HANDLER_ERROR_AUDIO_ONLINE:
                     isAudioCommu = false;
-                    jLabel_systemInfo.setText("Õ®–≈¡¥Ω”÷–∂œ£¨”Ô“ÙÕ®–≈“—Õ£÷π");
+                    jLabel_systemInfo.setText("ÈÄö‰ø°ÈìæÊé•‰∏≠Êñ≠ÔºåËØ≠Èü≥ÈÄö‰ø°Â∑≤ÂÅúÊ≠¢");
                 case HANDLER_GET_AUDIO_PACKAGE:
                     byte[] audioGet = (byte[]) msg.obj;
                     if (audioGet != null)
@@ -277,24 +277,24 @@ public class TrustedNode extends javax.swing.JFrame {
             }
         }
     };
-    // Õÿ∆ÀÕº
+    // ÊãìÊâëÂõæ
 
-    // ”√ªß¡–±Ìœ‡πÿ◊Èº˛
+    // Áî®Êà∑ÂàóË°®Áõ∏ÂÖ≥ÁªÑ‰ª∂
     private NodeStateListViewManager nodestateListViewManager;
 
-    // Œƒ◊÷Õ®–≈“≥√Ê
+    // ÊñáÂ≠óÈÄö‰ø°È°µÈù¢
     private MessageListViewManager messageListViewManager;
 
-    // ”Ô“ÙÕ®–≈“≥√Ê
+    // ËØ≠Èü≥ÈÄö‰ø°È°µÈù¢
     private AudioInfoManager audioInfoManager;
     private AudioSpectrum getAudioSpectrum;
     private AudioSpectrum sendAudioSpectrum;
     private boolean isAudioCommu;
 
-    //PBC≤‚ ‘π‹¿Ì∂‘œÛ…˘√˜
+    //PBCÊµãËØïÁÆ°ÁêÜÂØπË±°Â£∞Êòé
     private boolean isTestRunning = false;
 
-    //Õ¯¬ÁÕ®–≈œ‡πÿ∂‘œÛ…˘√˜
+    //ÁΩëÁªúÈÄö‰ø°Áõ∏ÂÖ≥ÂØπË±°Â£∞Êòé
     private boolean isDemoMode = true;
     private PacketThreadManager packetThreadManager;
 
@@ -325,7 +325,7 @@ public class TrustedNode extends javax.swing.JFrame {
             packetThreadManager.onCreatThread();
             packetThreadManager.onStartThread();
         } else {
-            //IPµÿ÷∑≤ª’˝»∑£¨÷ªø…Ω¯––µ•ª˙—› æ
+            //IPÂú∞ÂùÄ‰∏çÊ≠£Á°ÆÔºåÂè™ÂèØËøõË°åÂçïÊú∫ÊºîÁ§∫
             this.isDemoMode = true;
             jTextField_localClientName.setText(TrustedNode.DEMO_CLIENT_NAME);
             jTextField_localClientIP.setText(TrustedNode.DEMO_CLIENT_IP);
@@ -359,13 +359,9 @@ public class TrustedNode extends javax.swing.JFrame {
         jTabbedPane = new javax.swing.JTabbedPane();
         jPanel_topology = new javax.swing.JPanel();
         jPanel_topology_example = new javax.swing.JPanel();
-        jLabel_example_local = new javax.swing.JLabel();
-        jLabel_example_online = new javax.swing.JLabel();
-        jLabel_example_offline = new javax.swing.JLabel();
         jTextField_example_local = new javax.swing.JTextField();
         jTextField_example_online = new javax.swing.JTextField();
         jTextField_example_offline = new javax.swing.JTextField();
-        jLabel_topology_example = new javax.swing.JLabel();
         jPanel_commu = new javax.swing.JPanel();
         jButton_commu = new javax.swing.JButton();
         jTextField_commu = new javax.swing.JTextField();
@@ -381,14 +377,6 @@ public class TrustedNode extends javax.swing.JFrame {
         jPanel_log = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea_log = new javax.swing.JTextArea();
-        jButton_bls = new javax.swing.JButton();
-        jButton_hess = new javax.swing.JButton();
-        jButton_joux = new javax.swing.JButton();
-        jButton_paterson = new javax.swing.JButton();
-        jButton_yuanli = new javax.swing.JButton();
-        jButton_zhangkim = new javax.swing.JButton();
-        jButton_zss = new javax.swing.JButton();
-        jButton_bh = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree_clientlist = new javax.swing.JTree();
         jLabel_systemInfo = new javax.swing.JLabel();
@@ -396,14 +384,14 @@ public class TrustedNode extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel_currentClientIP.setText("”√ªßIP£∫");
+        jLabel_currentClientIP.setText("Áî®Êà∑IPÔºö");
 
-        jLabel_currentClientName.setText("”√ªß√˚£∫");
+        jLabel_currentClientName.setText("Áî®Êà∑ÂêçÔºö");
 
-        jLabel_currentClientTitle.setFont(new java.awt.Font("ª™ŒƒÁ˙ÁÍ", 0, 14)); // NOI18N
+        jLabel_currentClientTitle.setFont(new java.awt.Font("ÂçéÊñáÁê•ÁèÄ", 0, 14)); // NOI18N
         jLabel_currentClientTitle
                 .setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_currentClientTitle.setText("µ±«∞Õ®–≈”√ªß");
+        jLabel_currentClientTitle.setText("ÂΩìÂâçÈÄö‰ø°Áî®Êà∑");
 
         jTextField_currentClientIP.setEnabled(false);
 
@@ -477,16 +465,16 @@ public class TrustedNode extends javax.swing.JFrame {
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 Short.MAX_VALUE)));
 
-        jLabel_localClientIP.setText("PC∂ÀIP£∫");
+        jLabel_localClientIP.setText("PCÁ´ØIPÔºö");
 
-        jLabel_localClientTitle.setFont(new java.awt.Font("ª™ŒƒÁ˙ÁÍ", 0, 14)); // NOI18N
+        jLabel_localClientTitle.setFont(new java.awt.Font("ÂçéÊñáÁê•ÁèÄ", 0, 14)); // NOI18N
         jLabel_localClientTitle
                 .setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_localClientTitle.setText("”√ªßµ«¬º–≈œ¢");
+        jLabel_localClientTitle.setText("Áî®Êà∑ÁôªÂΩï‰ø°ÊÅØ");
 
         jTextField_localClientIP.setEnabled(false);
 
-        jLabel_localClientName.setText("”√ªß√˚£∫");
+        jLabel_localClientName.setText("Áî®Êà∑ÂêçÔºö");
 
         jTextField_localClientName.setEnabled(false);
 
@@ -623,15 +611,6 @@ public class TrustedNode extends javax.swing.JFrame {
                 .setForeground(new java.awt.Color(240, 240, 240));
         jPanel_topology_example.setOpaque(false);
 
-        jLabel_example_local.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel_example_local.setText("±æµÿΩ⁄µ„£∫");
-
-        jLabel_example_online.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_example_online.setText("‘⁄œﬂΩ⁄µ„£∫");
-
-        jLabel_example_offline.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_example_offline.setText("¿ÎœﬂΩ⁄µ„£∫");
-
         jTextField_example_local.setEditable(false);
         jTextField_example_local
                 .addActionListener(new java.awt.event.ActionListener() {
@@ -644,10 +623,6 @@ public class TrustedNode extends javax.swing.JFrame {
 
         jTextField_example_offline.setBackground(new java.awt.Color(255, 0, 0));
 
-        jLabel_topology_example.setFont(new java.awt.Font("ÀŒÃÂ", 0, 14)); // NOI18N
-        jLabel_topology_example
-                .setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_topology_example.setText("Õº¿˝£∫");
 
         javax.swing.GroupLayout jPanel_topology_exampleLayout = new javax.swing.GroupLayout(
                 jPanel_topology_example);
@@ -667,8 +642,6 @@ public class TrustedNode extends javax.swing.JFrame {
                                                         .addGroup(
                                                                 jPanel_topology_exampleLayout
                                                                         .createSequentialGroup()
-                                                                        .addComponent(
-                                                                                jLabel_example_local)
                                                                         .addGap(
                                                                                 18,
                                                                                 18,
@@ -678,13 +651,9 @@ public class TrustedNode extends javax.swing.JFrame {
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 20,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addComponent(
-                                                                jLabel_topology_example)
                                                         .addGroup(
                                                                 jPanel_topology_exampleLayout
                                                                         .createSequentialGroup()
-                                                                        .addComponent(
-                                                                                jLabel_example_online)
                                                                         .addGap(
                                                                                 18,
                                                                                 18,
@@ -697,8 +666,6 @@ public class TrustedNode extends javax.swing.JFrame {
                                                         .addGroup(
                                                                 jPanel_topology_exampleLayout
                                                                         .createSequentialGroup()
-                                                                        .addComponent(
-                                                                                jLabel_example_offline)
                                                                         .addGap(
                                                                                 18,
                                                                                 18,
@@ -719,14 +686,11 @@ public class TrustedNode extends javax.swing.JFrame {
                                 jPanel_topology_exampleLayout
                                         .createSequentialGroup()
                                         .addContainerGap()
-                                        .addComponent(jLabel_topology_example)
                                         .addGap(18, 18, 18)
                                         .addGroup(
                                                 jPanel_topology_exampleLayout
                                                         .createParallelGroup(
                                                                 javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(
-                                                                jLabel_example_local)
                                                         .addComponent(
                                                                 jTextField_example_local,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -738,8 +702,6 @@ public class TrustedNode extends javax.swing.JFrame {
                                                         .createParallelGroup(
                                                                 javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(
-                                                                jLabel_example_online)
-                                                        .addComponent(
                                                                 jTextField_example_online,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 20,
@@ -749,8 +711,6 @@ public class TrustedNode extends javax.swing.JFrame {
                                                 jPanel_topology_exampleLayout
                                                         .createParallelGroup(
                                                                 javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(
-                                                                jLabel_example_offline)
                                                         .addComponent(
                                                                 jTextField_example_offline,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -785,9 +745,9 @@ public class TrustedNode extends javax.swing.JFrame {
                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(193, Short.MAX_VALUE)));
 
-     //   jTabbedPane.addTab("Õÿ∆ÀÕº", jPanel_topology);
+     //   jTabbedPane.addTab("ÊãìÊâëÂõæ", jPanel_topology);
 
-        jButton_commu.setText("∑¢ÀÕ");
+        jButton_commu.setText("ÂèëÈÄÅ");
         jButton_commu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_commuActionPerformed(evt);
@@ -872,9 +832,9 @@ public class TrustedNode extends javax.swing.JFrame {
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addContainerGap()));
 
-        jTabbedPane.addTab("Œƒ◊÷Õ®–≈", jPanel_commu);
+        jTabbedPane.addTab("ÊñáÂ≠óÈÄö‰ø°", jPanel_commu);
 
-        jButton_audio_endAudio.setText("Ω· ¯”Ô“ÙÕ®–≈");
+        jButton_audio_endAudio.setText("ÁªìÊùüËØ≠Èü≥ÈÄö‰ø°");
         jButton_audio_endAudio
                 .addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -882,7 +842,7 @@ public class TrustedNode extends javax.swing.JFrame {
                     }
                 });
 
-        jButton_audio_reqAudio.setText("—˚«Î”Ô“ÙÕ®–≈");
+        jButton_audio_reqAudio.setText("ÈÇÄËØ∑ËØ≠Èü≥ÈÄö‰ø°");
         jButton_audio_reqAudio
                 .addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -999,63 +959,13 @@ public class TrustedNode extends javax.swing.JFrame {
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap()));
 
-        jTabbedPane.addTab("”Ô“ÙÕ®–≈", jPanel_audio);
+        jTabbedPane.addTab("ËØ≠Èü≥ÈÄö‰ø°", jPanel_audio);
 
         jTextArea_log.setEditable(false);
         jTextArea_log.setColumns(20);
         jTextArea_log.setRows(5);
         jScrollPane2.setViewportView(jTextArea_log);
 
-        jButton_bls.setText("BLS");
-
-        jButton_hess.setText("HESS");
-        jButton_hess.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_hessActionPerformed(evt);
-            }
-        });
-
-        jButton_joux.setText("JOUX");
-        jButton_joux.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_jouxActionPerformed(evt);
-            }
-        });
-
-        jButton_paterson.setText("PS");
-        jButton_paterson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_patersonActionPerformed(evt);
-            }
-        });
-
-        jButton_yuanli.setText("YL");
-        jButton_yuanli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_yuanliActionPerformed(evt);
-            }
-        });
-
-        jButton_zhangkim.setText("ZK");
-        jButton_zhangkim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_zhangkimActionPerformed(evt);
-            }
-        });
-
-        jButton_zss.setText("ZSS");
-        jButton_zss.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_zssActionPerformed(evt);
-            }
-        });
-
-        jButton_bh.setText("BH");
-        jButton_bh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_bhActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel_logLayout = new javax.swing.GroupLayout(
                 jPanel_log);
@@ -1080,36 +990,6 @@ public class TrustedNode extends javax.swing.JFrame {
                                                         .addGroup(
                                                                 jPanel_logLayout
                                                                         .createSequentialGroup()
-                                                                        .addComponent(
-                                                                                jButton_bls)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                        .addComponent(
-                                                                                jButton_hess)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                        .addComponent(
-                                                                                jButton_joux)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                        .addComponent(
-                                                                                jButton_paterson)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                        .addComponent(
-                                                                                jButton_yuanli)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                        .addComponent(
-                                                                                jButton_zhangkim)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                        .addComponent(
-                                                                                jButton_zss)
-                                                                        .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                        .addComponent(
-                                                                                jButton_bh)
                                                                         .addGap(
                                                                                 0,
                                                                                 0,
@@ -1133,25 +1013,9 @@ public class TrustedNode extends javax.swing.JFrame {
                                                 jPanel_logLayout
                                                         .createParallelGroup(
                                                                 javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(
-                                                                jButton_bls)
-                                                        .addComponent(
-                                                                jButton_hess)
-                                                        .addComponent(
-                                                                jButton_joux)
-                                                        .addComponent(
-                                                                jButton_paterson)
-                                                        .addComponent(
-                                                                jButton_yuanli)
-                                                        .addComponent(
-                                                                jButton_zhangkim)
-                                                        .addComponent(
-                                                                jButton_zss)
-                                                        .addComponent(
-                                                                jButton_bh))
-                                        .addContainerGap()));
+                                        )));
 
-        jTabbedPane.addTab("œµÕ≥ ‰≥ˆ", jPanel_log);
+        jTabbedPane.addTab("Á≥ªÁªüËæìÂá∫", jPanel_log);
         jTree_clientlist
                 .addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
                     public void valueChanged(
@@ -1162,11 +1026,11 @@ public class TrustedNode extends javax.swing.JFrame {
                 });
         jScrollPane1.setViewportView(jTree_clientlist);
 
-        jLabel_systemInfo.setFont(new java.awt.Font("ÀŒÃÂ", 1, 14)); // NOI18N
+        jLabel_systemInfo.setFont(new java.awt.Font("ÂÆã‰Ωì", 1, 14)); // NOI18N
         jLabel_systemInfo.setForeground(new java.awt.Color(255, 0, 51));
 
-        jLabel2.setFont(new java.awt.Font("ÀŒÃÂ", 1, 14)); // NOI18N
-        jLabel2.setText("œµÕ≥Ã· æ£∫");
+        jLabel2.setFont(new java.awt.Font("ÂÆã‰Ωì", 1, 14)); // NOI18N
+        jLabel2.setText("Á≥ªÁªüÊèêÁ§∫Ôºö");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
                 getContentPane());
@@ -1197,7 +1061,7 @@ public class TrustedNode extends javax.swing.JFrame {
                                                                         .addComponent(
                                                                                 jTabbedPane,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                466,
+                                                                                366,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(
                                                                 layout
@@ -1300,7 +1164,7 @@ public class TrustedNode extends javax.swing.JFrame {
         }
     }
 
-    // Ω¯––º”√‹µƒ≈–∂œ∫Õ∑¢ÀÕ
+    // ËøõË°åÂä†ÂØÜÁöÑÂà§Êñ≠ÂíåÂèëÈÄÅ
     private void jButton_commuActionPerformed(java.awt.event.ActionEvent evt) {
         if (!isDemoMode) {
             String text = this.jTextField_commu.getText().toString();
@@ -1321,7 +1185,7 @@ public class TrustedNode extends javax.swing.JFrame {
             javax.swing.event.TreeSelectionEvent evt) {// GEN-FIRST:event_jTree_clientlistValueChanged
         DefaultMutableTreeNode treeNode = (DefaultMutableTreeNode) this.jTree_clientlist
                 .getLastSelectedPathComponent();
-      //  String nodeIP = treeNode.getChildAt(1).toString().split("£∫")[1].trim(); //±»Ωœ‘‡µƒ∑Ω∑®ªÒ»°µƒIP
+      //  String nodeIP = treeNode.getChildAt(1).toString().split("Ôºö")[1].trim(); //ÊØîËæÉËÑèÁöÑÊñπÊ≥ïËé∑ÂèñÁöÑIP
         String treeString = treeNode.toString();
         if (packetThreadManager.setCurrentNodeByName(treeString)) {
             Node node = packetThreadManager.getCurrentNode();
@@ -1434,27 +1298,15 @@ public class TrustedNode extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_audio_endAudio;
     private javax.swing.JButton jButton_audio_reqAudio;
-    private javax.swing.JButton jButton_bh;
-    private javax.swing.JButton jButton_bls;
     private javax.swing.JButton jButton_commu;
-    private javax.swing.JButton jButton_hess;
-    private javax.swing.JButton jButton_joux;
-    private javax.swing.JButton jButton_paterson;
-    private javax.swing.JButton jButton_yuanli;
-    private javax.swing.JButton jButton_zhangkim;
-    private javax.swing.JButton jButton_zss;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel_currentClientIP;
     private javax.swing.JLabel jLabel_currentClientName;
     private javax.swing.JLabel jLabel_currentClientTitle;
-    private javax.swing.JLabel jLabel_example_local;
-    private javax.swing.JLabel jLabel_example_offline;
-    private javax.swing.JLabel jLabel_example_online;
     private javax.swing.JLabel jLabel_localClientIP;
     private javax.swing.JLabel jLabel_localClientName;
     private javax.swing.JLabel jLabel_localClientTitle;
     private javax.swing.JLabel jLabel_systemInfo;
-    private javax.swing.JLabel jLabel_topology_example;
     private javax.swing.JPanel jPanel_ClientInfo;
     private javax.swing.JPanel jPanel_audio;
     private javax.swing.JPanel jPanel_audio_button;

@@ -19,7 +19,7 @@ public class MessageListViewManager {
 	}
 	
 	public void addNewMessage(String text, String sourceName, String destName){
-            listView.append(getCurrentTime() + "  " + sourceName + "¶Ô" + destName + "Ëµ£º\n");
+            listView.append(getCurrentTime() + "  " + sourceName + "å¯¹" + destName + "è¯´ï¼š\n");
             listView.append(text + "\n");
 	}
 	
@@ -30,6 +30,6 @@ public class MessageListViewManager {
 		int date = t.get(Calendar.DATE);
 		int hour = t.get(Calendar.HOUR_OF_DAY);
 		int minute = t.get(Calendar.MINUTE);
-		return year + "Äê" + month + "ÔÂ" + date + "ÈÕ" + hour + "Ê±" + minute + "·Ö";
+		return year + "å¹´" + month + "æœˆ" + date + "æ—¥" + hour + "æ—¶" + minute + "åˆ†";
 	}
 }

@@ -23,7 +23,7 @@ public class NodeStateListViewManager {
     
     public NodeStateListViewManager(JTree jTree) {
         this.jTree = jTree;
-        rootNode = new DefaultMutableTreeNode("ÓÃ»§ÁĞ±í");
+        rootNode = new DefaultMutableTreeNode("ç”¨æˆ·åˆ—è¡¨");
         treeModel = new DefaultTreeModel(rootNode);
         this.jTree.setModel(treeModel);
     }
@@ -35,20 +35,20 @@ public class NodeStateListViewManager {
 			if (treeNode.toString().equals(nodeUpdate.getName())){
                 DefaultMutableTreeNode node = (DefaultMutableTreeNode)treeNode;
 				if (nodeUpdate.isOnline() && nodeUpdate.isValid()){
-				    //É¾³ı¡±×´Ì¬£ºÔÚÏß£¬¿ÉĞÅ¡° ÄÇÒ»ĞĞ
+				    //åˆ é™¤â€çŠ¶æ€ï¼šåœ¨çº¿ï¼Œå¯ä¿¡â€œ é‚£ä¸€è¡Œ
                     node.remove(2);
 
-                    node.add(new DefaultMutableTreeNode("×´Ì¬£ºÔÚÏß£¬¿ÉĞÅ"));
-                    Log.i(this.getClass().getName(), nodeUpdate.getName() + " ÒÑµÇÂ¼,×´Ì¬¿ÉĞÅ.");
+                    node.add(new DefaultMutableTreeNode("çŠ¶æ€ï¼šåœ¨çº¿ï¼Œå¯ä¿¡"));
+                    Log.i(this.getClass().getName(), nodeUpdate.getName() + " å·²ç™»å½•,çŠ¶æ€å¯ä¿¡.");
 
 				}else if (nodeUpdate.isOnline() && !nodeUpdate.isValid()){
 					node.remove(2);
-                    node.add(new DefaultMutableTreeNode("×´Ì¬£ºÔÚÏß£¬²»¿ÉĞÅ"));
-                    Log.v(this.getClass().getName(), nodeUpdate.getName() + "×´Ì¬²»¿ÉĞÅ£¬IPµØÖ·Îª:" + nodeUpdate.getIP());
+                    node.add(new DefaultMutableTreeNode("çŠ¶æ€ï¼šåœ¨çº¿ï¼Œä¸å¯ä¿¡"));
+                    Log.v(this.getClass().getName(), nodeUpdate.getName() + "çŠ¶æ€ä¸å¯ä¿¡ï¼ŒIPåœ°å€ä¸º:" + nodeUpdate.getIP());
 				}else{
 					node.remove(2);
-                    node.add(new DefaultMutableTreeNode("×´Ì¬£ºÀëÏß"));
-                    Log.i(this.getClass().getName(), nodeUpdate.getName() + "²»ÔÚÏß£¬IPµØÖ·Îª:" + nodeUpdate.getIP());
+                    node.add(new DefaultMutableTreeNode("çŠ¶æ€ï¼šç¦»çº¿"));
+                    Log.i(this.getClass().getName(), nodeUpdate.getName() + "ä¸åœ¨çº¿ï¼ŒIPåœ°å€ä¸º:" + nodeUpdate.getIP());
 				}
 				this.jTree.updateUI();
 				return;
@@ -58,17 +58,17 @@ public class NodeStateListViewManager {
 	
 	public void addClientToList(Node nodeUpdate){
             DefaultMutableTreeNode treeNode = new DefaultMutableTreeNode(nodeUpdate.getName());
-            treeNode.add(new DefaultMutableTreeNode("ĞÕÃû£º" + nodeUpdate.getName()));
-            treeNode.add(new DefaultMutableTreeNode("IP£º" + nodeUpdate.getIP()));
+            treeNode.add(new DefaultMutableTreeNode("å§“åï¼š" + nodeUpdate.getName()));
+            treeNode.add(new DefaultMutableTreeNode("IPï¼š" + nodeUpdate.getIP()));
             if (nodeUpdate.isOnline() && nodeUpdate.isValid()){
-                treeNode.add(new DefaultMutableTreeNode("×´Ì¬£ºÔÚÏß£¬¿ÉĞÅ"));
-                Log.i(this.getClass().getName(), nodeUpdate.getName() + "ĞÂÔöNode,×´Ì¬¿ÉĞÅ.");
+                treeNode.add(new DefaultMutableTreeNode("çŠ¶æ€ï¼šåœ¨çº¿ï¼Œå¯ä¿¡"));
+                Log.i(this.getClass().getName(), nodeUpdate.getName() + "æ–°å¢Node,çŠ¶æ€å¯ä¿¡.");
             }else if (nodeUpdate.isOnline() && !nodeUpdate.isValid()){
-            	treeNode.add(new DefaultMutableTreeNode("×´Ì¬£ºÔÚÏß£¬²»¿ÉĞÅ"));
-                Log.v(this.getClass().getName(), nodeUpdate.getName() + "ĞÂÔöNode£¬×´Ì¬²»¿ÉĞÅ.");
+            	treeNode.add(new DefaultMutableTreeNode("çŠ¶æ€ï¼šåœ¨çº¿ï¼Œä¸å¯ä¿¡"));
+                Log.v(this.getClass().getName(), nodeUpdate.getName() + "æ–°å¢Nodeï¼ŒçŠ¶æ€ä¸å¯ä¿¡.");
             }else{
-                treeNode.add(new DefaultMutableTreeNode("×´Ì¬£ºÀëÏß"));
-                Log.i(this.getClass().getName(), nodeUpdate.getName() + "ĞÂÔöNode,×´Ì¬ : ÀëÏß.");
+                treeNode.add(new DefaultMutableTreeNode("çŠ¶æ€ï¼šç¦»çº¿"));
+                Log.i(this.getClass().getName(), nodeUpdate.getName() + "æ–°å¢Node,çŠ¶æ€ : ç¦»çº¿.");
             }
             rootNode.add(treeNode);
             this.jTree.updateUI();
